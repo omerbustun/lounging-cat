@@ -7,6 +7,9 @@
 # General application configuration
 import Config
 
+config :lounging_cat,
+  ecto_repos: [LoungingCat.Repo]
+
 # Configures the endpoint
 config :lounging_cat, LoungingCatWeb.Endpoint,
   url: [host: "localhost"],
@@ -15,7 +18,7 @@ config :lounging_cat, LoungingCatWeb.Endpoint,
     layout: false
   ],
   pubsub_server: LoungingCat.PubSub,
-  live_view: [signing_salt: "EVaqbh7p"]
+  live_view: [signing_salt: "IfpJkG5M"]
 
 # Configures the mailer
 #

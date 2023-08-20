@@ -7,7 +7,7 @@ defmodule LoungingCatWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_lounging_cat_key",
-    signing_salt: "+Jz0fMzX",
+    signing_salt: "pjwEs3FJ",
     same_site: "Lax"
   ]
 
@@ -29,6 +29,7 @@ defmodule LoungingCatWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :lounging_cat
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,

@@ -43,6 +43,7 @@ defmodule LoungingCatWeb do
         layouts: [html: LoungingCatWeb.Layouts]
 
       import Plug.Conn
+      import LoungingCatWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -84,6 +85,7 @@ defmodule LoungingCatWeb do
       import Phoenix.HTML
       # Core UI components and translation
       import LoungingCatWeb.CoreComponents
+      import LoungingCatWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

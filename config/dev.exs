@@ -1,5 +1,15 @@
 import Config
 
+# Configure your database
+config :lounging_cat, LoungingCat.Repo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "lounging_cat_dev",
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -13,7 +23,7 @@ config :lounging_cat, LoungingCatWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "E7yiY90+weZ2W94wQ4Gp/3HPL41m9/JWeQGDgg5T+mwa8elNklAf6flu3gY4QZJg",
+  secret_key_base: "zKQsWfKYQ0xzzYOlkC5a1AaaEMroq58OWZ797WIDS+VB3Jvfa1kAVMwTwWsVt59N",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
@@ -47,6 +57,7 @@ config :lounging_cat, LoungingCatWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/gettext/.*(po)$",
       ~r"lib/lounging_cat_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
@@ -66,3 +77,5 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
+
+import_config "homeserver.exs"

@@ -10,6 +10,8 @@ defmodule LoungingCat.Application do
     children = [
       # Start the Telemetry supervisor
       LoungingCatWeb.Telemetry,
+      # Start the Ecto repository
+      LoungingCat.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: LoungingCat.PubSub},
       # Start Finch
