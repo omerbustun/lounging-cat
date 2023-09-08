@@ -1,6 +1,8 @@
 defmodule LoungingCatWeb.EventController do
   use LoungingCatWeb, :controller
 
+  plug :ensure_authenticated
+
   alias LoungingCat.Events
   alias LoungingCat.Events.Event
 
@@ -58,5 +60,16 @@ defmodule LoungingCatWeb.EventController do
     conn
     |> put_flash(:info, "Event deleted successfully.")
     |> redirect(to: ~p"/events")
+  end
+
+  defp ensure_authenticated(conn, _) do
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be logged in to access that page.")
+      |> redirect(to: "/users/log_in")
+      |> halt()
+    end
   end
 end
