@@ -87,6 +87,7 @@ defmodule LoungingCatWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     resources "/events", EventController
+    resources "/channels", ChannelController
   end
 
 end

@@ -1,0 +1,25 @@
+<.header>
+  Listing Channels
+  <:actions>
+    <.link href={~p"/channels/new"}>
+      <.button>New Channel</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="channels" rows={@channels} row_click={&JS.navigate(~p"/channels/#{&1}")}>
+  <:col :let={channel} label="Name"><%= channel.name %></:col>
+  <:col :let={channel} label="Description"><%= channel.description %></:col>
+  <:col :let={channel} label="Psk"><%= channel.psk %></:col>
+  <:action :let={channel}>
+    <div class="sr-only">
+      <.link navigate={~p"/channels/#{channel}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/channels/#{channel}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={channel}>
+    <.link href={~p"/channels/#{channel}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>
