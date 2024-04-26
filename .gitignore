@@ -36,4 +36,4 @@ npm-debug.log
 /assets/node_modules/
 
 # Other.
-/config/homeserver.exs
+/config/db_config.exs

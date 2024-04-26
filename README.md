@@ -1,6 +1,11 @@
 # 🐈 Lounging Cat
 Simple event tracker and notifier app to manage events between friends and family.
 
+## Configuration
+Before starting the server, you need to set up your local database configuration:
+
+* Copy `config/db_config.exs.sample` to `config/db_config.exs` and update it with your local database credentials.
+
 ## Starting
 To start your Phoenix server:
 

@@ -1,0 +1,11 @@
+import Config
+
+# Configure your database
+config :lounging_cat, LoungingCat.Repo,
+  username: "your_username",
+  password: "your_password",
+  hostname: "your_hostname",
+  database: "your_database",
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
